@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+
+    <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
+  <!-- jQuery and jQuery Mobile -->
+    <script src="jquery-1.8.3.min.js"></script>
+    <script src="jquery.mobile-1.3.2.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script>
+        angular.module('jqmobile',[]);
+    </script>
+    <script src="js/diaNote/recordCtrl.js"></script>
+   <script src="js/diaNote/recordShow.js"></script>
+    <script src="js/diaNote/pickdate.js"></script>
+    <script src="js/diaNote/root.js"></script>
+</head>
+<body ng-app="jqmobile" ng-controller="root">
+<!-- Home -->
+<div data-role="page" id="root" ng-controller="recordShow">
+    <div data-theme="a" data-role="header" data-position="fixed" >
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li>
+                    <a href="" data-transition="turn" data-theme="a" data-icon="arrow-l" ng-click="pre()">
+                        Pre
+                    </a>
+                </li>
+                <li>
+                    <a href="#pickdate" data-transition="slide" data-theme="a" data-icon="edit">
+                         {{today}}
+                    </a>
+                </li>
+                <li>
+                    <a href="" data-transition="turn" data-theme="a" data-icon="arrow-r" ng-click="next()">
+                        Next
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain" ng-repeat = "rec in nowInfo">
+            <textarea name="" id="textarea1" placeholder="" ng-bind="rec"></textarea>
+        </div>
+
+
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <div data-role="fieldcontain">
+            <input name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
+                   type="text" data-mini="true">
+
+            <a data-role="button" data-inline="true" data-transition="none" data-theme="b"
+               href="" ng-click="send()">
+                Send
+            </a>
+        </div>
+    </div>
+</div>
+<div data-role="page" id="pickdate" ng-controller="pickDate">
+    <div data-theme="a" data-role="header" data-position="fixed">
+        <span class="ui-title">
+        </span>
+        <a data-role="button" data-inline="true" data-rel="back" data-theme="a"
+           href="#root" data-icon="back" data-iconpos="left" class="ui-btn-left">
+            Back{{msg}}
+        </a>
+        <a id="filter" data-role="button" data-rel="back"  data-inline="true"
+           href="#root" ng-click="pick()" data-icon="search" data-iconpos="right" class="ui-btn-right">
+            Pick
+        </a>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <input name="" id="textinput7" placeholder="" value="" type="date" ng-model="pickTime">
+        </div>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <span class="ui-title">
+        </span>
+    </div>
+</div>
+</body>
+</html>

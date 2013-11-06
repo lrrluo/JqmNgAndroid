@@ -1,0 +1,27 @@
+<!-- Home -->
+        <script>
+
+        </script>
+<div data-role="page" id="pickdate" ng-controller="pickDate">
+    <div data-theme="a" data-role="header" data-position="fixed">
+        <span class="ui-title">
+        </span>
+        <a data-role="button" data-inline="true" data-rel="back" data-theme="a"
+           href="" data-icon="back" data-iconpos="left" class="ui-btn-left">
+            Back{{msg}}
+        </a>
+        <a id="filter" data-role="button"  data-inline="true" data-rel="back"
+           href="" ng-click="pick()" data-icon="search" data-iconpos="right" class="ui-btn-right">
+            Pick
+        </a>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <input name="" id="textinput7" placeholder="" value="" type="date" ng-model="pickTime">
+        </div>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <span class="ui-title">
+        </span>
+    </div>
+</div>
