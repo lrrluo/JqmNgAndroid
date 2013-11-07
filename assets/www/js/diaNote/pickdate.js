@@ -4,12 +4,17 @@
 'use strict';
 angular.module('jqmobile')
     .controller('pickDate', function ($scope) {
-        $scope.msg = "test";
+        $scope.time = "2013-12-05"
+
+        $scope.$watch('time',function(a,b){
+            console.log(a,b);
+        })
 
         $scope.pick = function(){
-            console.log($scope.pickTime);
-            if($scope.pickTime != null){
-                $scope.$emit("pickDate",$scope.pickTime);
+            console.log($scope.time);
+            if($scope.time != null){
+                var t = $scope.time;
+                $scope.$emit("pickDate",t);
 
             }
         }
