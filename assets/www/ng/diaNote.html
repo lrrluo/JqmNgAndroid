@@ -7,20 +7,37 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title></title>
 
-    <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
+    <link rel="stylesheet" href="../jquery.mobile-1.3.2.min.css" />
   <!-- jQuery and jQuery Mobile -->
-    <script src="jquery-1.8.3.min.js"></script>
-    <script src="jquery.mobile-1.3.2.min.js"></script>
-    <script src="angular.min.js"></script>
+    <script src="../jquery-1.8.3.min.js"></script>
+    <script src="../jquery.mobile-1.3.2.min.js"></script>
+    <script src="../angular.min.js"></script>
     <script>
         angular.module('jqmobile',[]);
     </script>
-    <script src="js/diaNote/recordCtrl.js"></script>
-   <script src="js/diaNote/recordShow.js"></script>
-    <script src="js/diaNote/pickdate.js"></script>
-    <script src="js/diaNote/root.js"></script>
+    <style>
+        .ui-page{
+            background-image: url('../images/diaBack3.jpg');
+        }
+
+        textarea.ui-input-text{
+            font-size: 12px;
+            font-family: georgia;
+            font-weight: bold;
+            color: #ffffff;
+            resize:none;
+            overflow:visible;
+        }
+        .ui-disabled{
+            opacity: 1;
+        }
+    </style>
+    <script src="js/recordCtrl.js"></script>
+   <script src="js/recordShow.js"></script>
+    <script src="js/pickdate.js"></script>
+    <script src="js/root.js"></script>
 </head>
-<body ng-app="jqmobile" ng-controller="root">
+<body ng-app="jqmobile" ng-controller="root" >
 <!-- Home -->
 <div data-role="page" id="root" ng-controller="recordShow">
     <div data-theme="a" data-role="header" data-position="fixed" >
@@ -46,15 +63,17 @@
     </div>
     <div data-role="content">
         <div data-role="fieldcontain" ng-repeat = "rec in nowInfo">
-            <textarea name="" id="textarea1" placeholder="" ng-bind="rec"></textarea>
+            <textarea name="" data-theme="a"  ng-model="rec" ng-change="ch" disabled ng-class="{test:$even}"></textarea>
         </div>
 
 
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
         <div data-role="fieldcontain">
-            <input name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
-                   type="text" data-mini="true">
+            <textarea name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
+                    data-mini="true"></textarea>
+            <textarea name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
+                      data-mini="true"></textarea>
 
             <a data-role="button" data-inline="true" data-transition="none" data-theme="b"
                href="" ng-click="send()">
@@ -72,13 +91,13 @@
             Back{{msg}}
         </a>
         <a id="filter" data-role="button" data-rel="back"  data-inline="true"
-           href="#root" ng-click="pick()" data-icon="search" data-iconpos="right" class="ui-btn-right">
+           href="#root" ng-click="pick()" class="ui-btn-right">
             Pick
         </a>
     </div>
     <div data-role="content">
         <div data-role="fieldcontain">
-            <input name="" id="textinput7" placeholder="" value="" type="date" ng-model="pickTime">
+            <input name="" id="textinput7" placeholder="" value="" type="date" ng-model="time">
         </div>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
