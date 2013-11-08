@@ -1,9 +1,13 @@
 'use strict';
+
+$(document).on('pageinit', '#root', function(){
+    console.log("init")
 angular.module('jqmobile')
     .controller('recordShow', function ($scope,$filter,$element,recordCtrl) {
         var nowday = new Date();  //use for today 's time still
         var today = new Date(); // use for min or plus day
         $scope.canSend = false;
+        console.log("init jqmo")
 
 
         var now = $scope.today = $filter('date')(today, 'yyyy-MM-dd');
@@ -11,16 +15,18 @@ angular.module('jqmobile')
         console.log($scope.today)
         recordCtrl.query($scope.today,queryCallback);
 
-        /*    $scope.$watch('msg',function(){
-                if($scope.msg != "" && $scope.msg != null){
-                    $element.find('a').eq(3).addClass("ui-diabled")
+        //   $scope.$watch('msg',function(){
+        //       console.log("sss");
+        //        if($scope.msg != "" && $scope.msg != null){
+        //            $("#sendBtn").button("disable");
 
-                }
-                else{
-                    $element.find('a').eq(3).css("background",'green');
-                }
-              //  $element("#sendBtn").button("refresh");
-            });           */
+        //        }
+        //        else{
+        //            $("#sendBtn").button("enable");
+        //        }
+        //        //$element("#sendBtn").button("refresh");
+        //       $("#sendBtn").button("refresh");
+        //    });
 
 
         function queryCallback(records){
@@ -83,5 +89,7 @@ angular.module('jqmobile')
             $scope.today = $filter('date')(today, 'yyyy-MM-dd');
             recordCtrl.query($scope.today,queryCallback);
         })
+});
+
 });
 
