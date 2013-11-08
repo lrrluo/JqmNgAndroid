@@ -37,11 +37,12 @@ angular.module('jqmobile')
                         callback(ret);
                         return false;
                     }
-                    console.log(res.rows.item(0).time);
-                    console.log(res.rows.item(1).time);
 
                     for(var i = 0;i<res.rows.length;i++){
-                       ret.push(res.rows.item(i).info);
+                        //var t =$filter('date')(a,"HH:mm:ss");
+                       //console.log(t);
+
+                       ret.push(res.rows.item(i));
                     }
                     callback(ret);
                 });
@@ -49,12 +50,10 @@ angular.module('jqmobile')
 
         };
 
-        records.add = function(record,callback){
+        records.add = function(record,whichDay,callback){
             db.transaction(function(tx){
                 tx.executeSql('CREATE TABLE IF NOT EXISTS record (time datetime,info text)');
-                var t = new Date();
-                var t = $filter('date')(t, 'yyyy-MM-dd HH:mm:ss');
-                tx.executeSql('INSERT INTO record (time, info) VALUES ("'+t+'", "'+record+'")',[],function(tx,res){
+                tx.executeSql('INSERT INTO record (time, info) VALUES ("'+whichDay+'", "'+record+'")',[],function(tx,res){
                     if(res.insertId == null){
                         callback(false);
                     }

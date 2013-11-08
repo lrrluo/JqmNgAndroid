@@ -32,6 +32,7 @@
             opacity: 1;
         }
     </style>
+    <script src="js/skipFilter.js"></script>
     <script src="js/recordCtrl.js"></script>
    <script src="js/recordShow.js"></script>
     <script src="js/pickdate.js"></script>
@@ -62,21 +63,21 @@
         </div>
     </div>
     <div data-role="content">
-        <div data-role="fieldcontain" ng-repeat = "rec in nowInfo">
-            <textarea name="" data-theme="a"  ng-model="rec" ng-change="ch" disabled ng-class="{test:$even}"></textarea>
+        <div data-role="fieldcontain" ng-repeat = "rec in nowInfo" >
+            <h4 style="color: yellow">{{rec.time | myskip:11}}</h4>
+            <div class="ui-overlay-shadow ui-corner-all ui-body-a" style="word-break:break-all;">
+                <p  style="margin: 0.5em 7px;"><strong>{{rec.info}}</strong></p>
+            </div>
         </div>
 
 
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-role="fieldcontain">
+        <div data-role="fieldcontain" style="display: inline">
             <textarea name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
-                    data-mini="true"></textarea>
-            <textarea name="" ng-model="msg" id="textinput4" placeholder="Type your msg to mark" value=""
-                      data-mini="true"></textarea>
-
-            <a data-role="button" data-inline="true" data-transition="none" data-theme="b"
-               href="" ng-click="send()">
+                    data-mini="true" required></textarea>
+            <a data-role="button" data-inline="true"  id="sendBtn" data-transition="none" data-theme="b"
+               href="" ng-click="send()" >
                 Send
             </a>
         </div>
