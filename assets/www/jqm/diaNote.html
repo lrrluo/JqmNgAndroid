@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+
+    <link rel="stylesheet" href="../jquery.mobile-1.3.2.min.css" />
+    <!-- jQuery and jQuery Mobile -->
+    <script src="../jquery-1.8.3.min.js"></script>
+    <script src="../jquery.mobile-1.3.2.min.js"></script>
+    <style>
+            /*   .ui-page{
+                   background-image: url('../images/diaBack3.jpg');
+               }
+
+               textarea.ui-input-text{
+                   font-size: 12px;
+                   font-family: georgia;
+                   font-weight: bold;
+                   color: #ffffff;
+                   resize:none;
+                   overflow:visible;
+               }
+               .ui-disabled{    #5e87b0
+                   opacity: 1;
+               }      */
+    </style>
+    <script src="js/moment.min.js"></script>
+    <script src="js/root.js"></script>
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="root" data-theme="a">
+    <div data-theme="e" data-role="header" data-position="fixed" >
+        <a href="#popupBasic" data-rel="popup" data-role="button" data-inline="true" data-transition="pop" id="time"></a>
+        <div data-role="popup" id="popupBasic">
+            <p id="detailTime"></p>
+        </div>
+            <h1>Dail Mark</h1>
+        <a href="" data-icon="refresh" class="ui-btn-right">Back to Today</a>
+    </div>
+    <div data-role="content" id="msgBoard">
+        <!--h4 style="color: #fadb4e">11:23:23</h4>
+        <div class="ui-overlay-shadow ui-corner-all ui-body-b" style="background: #5e87b0;word-break:break-all;color: #ffffff">
+            <p style="margin: 0.5em 7px;font-size: 16px;">
+                {{rec.info}weeeeeeeeeeee}
+            </p>
+        </div-->
+
+
+    </div>
+    <div data-theme="e" data-role="footer" data-position="fixed">
+        <div data-role="fieldcontain" style="display: inline">
+            <textarea name=""  id="textinput4" placeholder="Type your msg to mark" value=""
+                      data-mini="true" required></textarea>
+            <a data-role="button" data-inline="true"  id="sendBtn" data-transition="none" data-theme="b"
+               href=""  >
+                Send
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
