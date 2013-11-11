@@ -40,26 +40,20 @@
             <p id="detailTime"></p>
         </div>
             <h1>Dail Mark</h1>
-        <a href="" data-icon="refresh" class="ui-btn-right">Back to Today</a>
+        <a href="" data-icon="refresh" class="ui-btn-right" id="back">Back to Today</a>
     </div>
     <div data-role="content" id="msgBoard">
-        <!--h4 style="color: #fadb4e">11:23:23</h4>
-        <div class="ui-overlay-shadow ui-corner-all ui-body-b" style="background: #5e87b0;word-break:break-all;color: #ffffff">
-            <p style="margin: 0.5em 7px;font-size: 16px;">
-                {{rec.info}weeeeeeeeeeee}
-            </p>
-        </div-->
-
-
     </div>
     <div data-theme="e" data-role="footer" data-position="fixed">
         <div data-role="fieldcontain" style="display: inline">
-            <textarea name=""  id="textinput4" placeholder="Type your msg to mark" value=""
+            <form>
+            <textarea name=""  id="msg" placeholder="Type your msg to mark" value=""
                       data-mini="true" required></textarea>
-            <a data-role="button" data-inline="true"  id="sendBtn" data-transition="none" data-theme="b"
-               href=""  >
+            <button data-role="button" data-inline="true"  id="sendBtn" data-transition="none" data-theme="b"
+                >
                 Send
-            </a>
+            </button>
+            </form>
         </div>
     </div>
 </div>
